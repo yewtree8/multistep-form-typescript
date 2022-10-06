@@ -1,13 +1,18 @@
 import { FormWrapper } from "./FormWrapper";
 
-export const UserDataForm = () => {
+type UserDataProps = {
+    firstName: string;
+    lastName: string;
+}
+
+export const UserDataForm = ({firstName, lastName} : UserDataProps) => {
 
     return (
         <FormWrapper formTitle="Your Details">
         <label>First Name</label>
-        <input autoFocus required type='text' />
+        <input autoFocus required name="firstName" type='text' value={firstName} />
         <label>Last Name</label>
-        <input autoFocus required type='text' />
+        <input autoFocus required name="lastName" type='text' value={lastName} />
         </FormWrapper>
     )
 
