@@ -28,7 +28,8 @@ return {
     step: steps[stepIndex],
     goToStep,
     steps,
-    isFirstStep : stepIndex !== 0,
+    isFirstStep : stepIndex === 0,
+    isLastStep : stepIndex === steps.length -1,
     next,
     back
 }

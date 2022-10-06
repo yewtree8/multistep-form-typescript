@@ -4,13 +4,14 @@ import './style/App.css';
 function App() {
 
   const { 
-    steps, stepIndex, step, isFirstStep
-  } = useMultistepForm([<div>One</div>,<div>Two</div>]);
+    steps, stepIndex, step, isFirstStep, back, next, isLastStep
+  } = useMultistepForm([<div>One</div>,<div>Two</div>,<div>Three</div>]);
+
 
   return (
     <div className="formWrapper">
 
-      {/* <h3>Vite React Multi Step Form!</h3> */}
+      <h3>Vite React Multi Step Form!</h3>
 
       <form>
 
@@ -18,10 +19,9 @@ function App() {
           {stepIndex + 1} / {steps.length}
         </div>
           {step}
-
         <div className="buttonWrapper">
-          {!isFirstStep && <button>Back</button>}
-          <button>Next</button>
+          {!isFirstStep && <button type='button' onClick={back}>Back</button>}
+          <button type='button' onClick={next}>{isLastStep ? 'Finish' : 'Next'}</button>
         </div>
       </form>  
     </div>
