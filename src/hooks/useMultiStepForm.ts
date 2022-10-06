@@ -5,11 +5,17 @@ export function useMultistepForm(steps: ReactElement[]) {
 
 
 const next = () => {
-    setStepIndex((step) => { return step+1})
+    setStepIndex((step) => {
+        if(step >= steps.length -1) return step;
+         return step+1
+        })
 }
 
 const back = () => { 
-    setStepIndex((step) => { return step-1})
+    setStepIndex((step) => {
+        if(step <= 0) return step;
+        return step - 1
+    })
 }
 
 function goToStep(step:number) {
