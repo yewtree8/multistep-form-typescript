@@ -2,6 +2,7 @@ import { ReactElement, useState } from "react";
 
 export function useMultistepForm(steps: ReactElement[]) {
     const [stepIndex, setStepIndex] = useState(0);
+    const [isFirstStep, setIsFirstStep] = useState(true);
 
 
 const next = () => {
@@ -13,13 +14,19 @@ const next = () => {
 
 const back = () => { 
     setStepIndex((step) => {
-        if(step <= 0) return step;
+        if(step <= 0) {
+            setIsFirstStep(true);
+            return step;
+        }
         return step - 1
     })
 }
 
 function goToStep(step:number) {
     setStepIndex(step);
+    if(step <= 1) {
+        setIsFirstStep(true);
+    }
 }
 
 
@@ -28,6 +35,7 @@ return {
     step: steps[stepIndex],
     goToStep,
     steps,
+    isFirstStep,
     next,
     back
 }
