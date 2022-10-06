@@ -1,4 +1,4 @@
-.formWrapper {
+.appWrapper {
     position: relative;
     background: white;
     border: 1px solid black;
@@ -20,4 +20,18 @@
     display: flex;
     gap: 0.5rem;
     justify-content: flex-end;
+}
+
+.formWrapper {
+    display: grid;
+    gap: 1rem .5rem;
+    justify-content: flex-start;
+    grid-template-columns: auto minmax(auto, 400px);
+}
+
+h2.formWrapper {
+    text-align: center;
+    align-content: center;
+    margin: 0;
+    margin-bottom: 1em;
 }
