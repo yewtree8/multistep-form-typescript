@@ -1,12 +1,20 @@
-import { useState } from 'react'
-
+import { useMultistepForm } from './hooks/useMultiStepForm';
+import './style/App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const { 
+    steps, stepIndex
+  } = useMultistepForm([<div>One</div>,<div>Two</div>]);
 
   return (
-    <div className="App">
-      <h1>Hi</h1>      
+    <div className="formWrapper">
+      <h3>Vite React Multi Step Form</h3>
+      <form>
+        <div className="formInner">
+          {stepIndex + 1} / {steps.length}
+        </div>
+      </form>  
     </div>
   )
 }

@@ -26,7 +26,10 @@ function goToStep(step:number) {
 return { 
     stepIndex,
     step: steps[stepIndex],
-    goToStep
+    goToStep,
+    steps,
+    next,
+    back
 }
 
 }

@@ -1,0 +1,19 @@
+* {
+    margin: auto;
+}
+
+.formWrapper {
+    position: relative;
+    background: white;
+    border: 1px solid black;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.formInner { 
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
