@@ -1,11 +1,11 @@
 import { FormWrapper } from "./FormWrapper";
 import { FormPropType } from "../type/FormPropTypes";
 
-type UserFormProps = FormPropType & {
-    updateFields:(fields:Partial<FormPropType>) => void
-}
+// type UserFormProps = FormPropType & {
+//     updateFields:(fields:Partial<FormPropType>) => void
+// }
 
-export const UserDataForm = ({firstName, lastName, updateFields} : FormPropType & UserFormProps) => {
+export const UserDataForm = ({firstName, lastName, updateFields} : FormPropType) => {
 
 
     return (

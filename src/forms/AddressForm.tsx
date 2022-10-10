@@ -2,12 +2,7 @@ import { FormWrapper } from "./FormWrapper";
 import { FormPropType } from "../type/FormPropTypes";
 
 
-type AddressFormProp = FormPropType & {
-    updateFields:(fields:Partial<FormPropType>) => void
-}
-
-
-export const AddressForm = ({addressLine, secondAddressLine, cityTown, postcode, updateFields} : AddressFormProp
+export const AddressForm = ({addressLine, secondAddressLine, cityTown, postcode, updateFields} : FormPropType
      ) => {
 
     return (

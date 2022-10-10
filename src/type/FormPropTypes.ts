@@ -7,4 +7,5 @@ export type FormPropType = {
     postcode?: string,
     email?: string,
     password?: string,
+    updateFields:(fields:Partial<FormPropType>) => void
 }

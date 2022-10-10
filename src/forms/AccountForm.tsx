@@ -1,11 +1,8 @@
 import { FormWrapper } from "./FormWrapper";
 import { FormPropType } from "../type/FormPropTypes";
 
-type AccountFormProps = FormPropType & {
-    updateFields:(fields:Partial<FormPropType>) => void;
-}
 
-export const AccountForm = ({email, password, updateFields} : AccountFormProps) => {
+export const AccountForm = ({email, password, updateFields} : FormPropType) => {
 
     return (
         <FormWrapper formTitle="Email and password">
