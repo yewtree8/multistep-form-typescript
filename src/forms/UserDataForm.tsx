@@ -1,18 +1,22 @@
 import { FormWrapper } from "./FormWrapper";
+import { FormPropType } from "../type/FormPropTypes";
 
-type UserDataProps = {
-    firstName: string;
-    lastName: string;
+type UserFormProps = FormPropType & {
+    updateFields:(fields:Partial<FormPropType>) => void
 }
 
-export const UserDataForm = ({firstName, lastName} : UserDataProps) => {
+export const UserDataForm = ({firstName, lastName, updateFields} : FormPropType & UserFormProps) => {
+
 
     return (
         <FormWrapper formTitle="Your Details">
         <label>First Name</label>
-        <input autoFocus required name="firstName" type='text' value={firstName} />
+        <input autoFocus required name="firstName" type='text' 
+        value={firstName}
+        onChange={e => updateFields({firstName: e.target.value})} />
         <label>Last Name</label>
-        <input autoFocus required name="lastName" type='text' value={lastName} />
+        <input autoFocus required name="lastName" type='text' value={lastName}
+        onChange={e => updateFields({lastName: e.target.value})} />
         </FormWrapper>
     )
 

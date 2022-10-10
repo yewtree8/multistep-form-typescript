@@ -16,7 +16,7 @@ type FormData = {
   password: string,
 }
 
-const DATA: FormData = {
+const INITIAL_DATA: FormData = {
   firstName: "",
   lastName: "",
   addressLine: "",
@@ -28,10 +28,21 @@ const DATA: FormData = {
 }
 
 function App() {
-  const [storedData, setStoredData] = useState(DATA);
+  const [storedData, setStoredData] = useState(INITIAL_DATA);
+
+  const updateFields = (fields:Partial<FormData>) => {
+    setStoredData((prev) => {
+      return {...prev, ...fields};
+    })
+  }
+
   const { 
     steps, stepIndex, step, isFirstStep, back, next, isLastStep
-  } = useMultistepForm([<UserDataForm {...storedData}/>, <AddressForm {...storedData}/>, <AccountForm {...storedData}/>]);
+  } = useMultistepForm(
+    [
+    <UserDataForm {...storedData} updateFields={updateFields}/>,
+    <AddressForm {...storedData} updateFields={updateFields}/>,
+    <AccountForm {...storedData} updateFields={updateFields}/>]);
 
 
   const handleSubmit = (e:FormEvent) => {
