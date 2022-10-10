@@ -47,8 +47,8 @@ function App() {
 
   const handleSubmit = (e:FormEvent) => {
     e.preventDefault();
-    next();
-
+    if(!isLastStep) return next();
+    alert("Form submitted, thank you!");
   }
 
   return (
